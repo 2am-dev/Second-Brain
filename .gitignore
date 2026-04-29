@@ -1,0 +1,35 @@
+# --- Python & Data Science ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.env
+.ipynb_checkpoints/
+
+# --- Deep Learning & Large Files ---
+# Ignore large model weights and datasets
+*.pth
+*.pt
+*.onnx
+*.weights
+data/
+outputs/
+models/
+
+# --- AI Frameworks (LangChain/ChromaDB) ---
+# Ignore local vector databases
+chroma/
+.chromadb/
+
+# --- Web Development ---
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# --- IDEs & OS ---
+.vscode/
+.idea/
+.swp

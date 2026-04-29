@@ -1,0 +1,21 @@
+second_brain/
+├── ingestion/
+│   ├── __init__.py
+│   ├── pdf_processor.py
+│   ├── web_processor.py
+│   └── text_processor.py
+├── storage/
+│   ├── __init__.py
+│   ├── vector_store.py
+│   ├── graph_store.py
+│   └── summary_store.py
+├── agents/
+│   ├── __init__.py
+│   ├── query_agent.py
+│   ├── link_agent.py
+│   └── insight_agent.py
+├── utils/
+│   ├── __init__.py
+│   └── helpers.py
+├── brain.py
+└── main.py
