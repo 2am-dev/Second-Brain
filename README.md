@@ -172,26 +172,50 @@ python main.py --ingest /path/to/book.txt
 
 ### 📥 Ingestion
 
-| Command              | Description        |
-| -------------------- | ------------------ |
-| `ingest pdf <path>`  | Ingest a PDF file  |
-| `ingest url <url>`   | Ingest a web page  |
-| `ingest text`        | Type/paste note    |
-| `ingest file <path>` | Auto-detect format |
+| Command              | Description                              |
+| -------------------- | ---------------------------------------- |
+| `ingest pdf <path>`  | Ingest a PDF file                        |
+| `ingest url <url>`   | Ingest a web page                        |
+| `ingest text`        | Type or paste a note (end with `END`)    |
+| `ingest file <path>` | Auto‑detect format and ingest            |
 
 ---
 
-### 🔍 Queries
+### 🔍 Queries & Insights
 
-| Command                  | Description         |
-| ------------------------ | ------------------- |
-| `ask <question>`         | Ask anything        |
-| `search <query>`         | Semantic search     |
-| `summarize <topic>`      | Summarize topic     |
-| `summarize doc <source>` | Summarize document  |
-| `compare <a> <b>`        | Compare two sources |
+| Command                         | Description                                   |
+| ------------------------------- | --------------------------------------------- |
+| `ask <question>`                | Ask anything about your knowledge base       |
+| `search <query>`                | Raw semantic search                          |
+| `summarize <topic>`             | Summarise a concept or topic                 |
+| `summarize doc <source>`        | Summarise a specific ingested document       |
+| `compare <a> \| <b>`            | Compare two topics or documents              |
+| `questions`                     | Generate study questions from your data      |
+| `insights`                      | Generate daily cross‑topic insights          |
 
 ---
+
+### 🧠 Knowledge Graph
+
+| Command                       | Description                                 |
+| ----------------------------- | ------------------------------------------- |
+| `graph build`                 | Build the concept graph from ingested content |
+| `graph related <concept>`     | Show concepts most related to the given one   |
+| `graph central`               | Show the most central / important concepts    |
+| `graph connect <a> <b>`       | Trace the connection between two concepts     |
+
+---
+
+### 🛠️ Utilities
+
+| Command           | Description                          |
+| ----------------- | ------------------------------------ |
+| `docs`            | List all ingested documents          |
+| `stats`           | Display knowledge base statistics    |
+| `history`         | Show recent insights                 |
+| `clear`           | Clear current conversation context   |
+| `help`            | Show the full command help           |
+| `quit` / `exit`   | Exit the REPL                        |
 
 ### ⚙️ Configuration
 
