@@ -167,6 +167,11 @@ python main.py --ingest /path/to/book.txt
 ```
 
 ---
+### 5 · Troubleshooting and Pinpointing
+
+Use the check.ipynb that makes it easier to see where the actual error lies during execution of the code
+
+---
 
 ## 📖 CLI Reference
 
