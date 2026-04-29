@@ -1,232 +1,236 @@
+<div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Local AI](https://img.shields.io/badge/AI-Local%20First-orange)
+![Second Brain Banner](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Second%20Brain&fontSize=80&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Your%20Local%20AI%20Knowledge%20Base&descAlignY=55&descSize=20)
 
-```markdown
-# 🧠 Second Brain
+<br/>
 
-**A local, privacy‑first AI knowledge base that grows with you.**
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
+[![Ollama](https://img.shields.io/badge/Powered%20by-Ollama-ff6b35?style=for-the-badge&logo=llama&logoColor=white)](https://ollama.com)
+[![Local AI](https://img.shields.io/badge/AI-100%25%20Local-8b5cf6?style=for-the-badge&logo=homeassistant&logoColor=white)](https://ollama.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-ec4899?style=for-the-badge&logo=github&logoColor=white)](https://github.com/2am-dev/Second-Brain/pulls)
 
-Second Brain turns your documents, web pages, and notes into a searchable, conversational knowledge base that runs entirely on your machine. It ingests PDFs, URLs, and raw text, stores them in a vector database and a knowledge graph, then lets you query, summarize, and draw insights using a local LLM.
+<br/>
+
+**Turn your documents, web pages, and notes into a conversational AI knowledge base — that runs entirely on your machine.**
+
+[🚀 Quick Start](#quick-start) · [✨ Features](#features) · [📖 CLI Reference](#cli-reference) · [⚙️ Configuration](#configuration) · [🗺️ Roadmap](#roadmap)
+
+<br/>
+
+> 🔒 **Your data never leaves your machine. No API keys. No subscriptions. No cloud.**
+
+</div>
 
 ---
+
+## 📸 Preview
+
+<div align="center">
+<pre>
+┌─────────────────────────────────────────────────────────────────┐
+│ 🧠 SECOND BRAIN                                                 │
+│ Your Local AI Knowledge Base                                    │
+│─────────────────────────────────────────────────────────────────│
+│ ✅ Vector DB │ 1,247 chunks across 14 documents                 │
+│ ✅ Knowledge Graph │ 89 concepts · 214 connections              │
+│ ✅ LLM Ready │ mistral:7b via Ollama                            │
+└─────────────────────────────────────────────────────────────────┘
+</pre>
+</div>
+
+ask What connects the transformer architecture to attention theory?
+
+🤔 Thinking...
+
+💡 Based on your knowledge base:
+The transformer architecture fundamentally reimagines attention as
+a first-class computational primitive rather than an auxiliary
+mechanism. Across your 3 related documents, the key insight is...
+
+_
+
+
+---
+
 ## 🤔 Why Second Brain?
 
-Most AI tools require sending your data to the cloud.
-Second Brain keeps everything local, private, and fully under your control—while still giving you powerful semantic search and reasoning.
+Most AI tools require sending your data to the cloud. **Second Brain is different.**
+
+| | ☁️ Cloud AI Tools | 🧠 Second Brain |
+|---|---|---|
+| **Privacy** | Data sent to remote servers | 100% local — never leaves your machine |
+| **Cost** | Monthly subscriptions / API fees | Free forever |
+| **Knowledge Source** | Generic world knowledge | *Your* documents and notes |
+| **Connectivity** | Requires internet | Works fully offline |
+| **Customization** | Limited | Fully open and configurable |
+| **Data Control** | Vendor-dependent | You own everything |
+
+---
 
 ## ✨ Features
 
-- **📥 Multi‑format ingestion** – PDFs, web pages, text snippets, or auto‑detected files.
-- **🔍 Semantic search** – Find relevant information by meaning, not just keywords.
-- **💬 Conversational Q&A** – Ask questions in natural language and get answers grounded in your own data.
-- **📝 Document & topic summaries** – Generate structured summaries with key points.
-- **🔗 Knowledge graph** – Discover how concepts connect across your library.
-- **💡 Daily insights** – Surface surprising connections between random pieces of your knowledge.
-- **🖥️ Interactive CLI** – A rich REPL with history, help, and dozens of commands.
-- **🔒 100% local** – Your data never leaves your machine. Uses Ollama for LLM inference and embeddings.
+### 📥 Multi-Format Ingestion
+Ingest PDFs, web pages, raw text notes, or any auto-detected file. The pipeline chunks, cleans, and embeds everything automatically.
+
+### 🔍 Semantic Search
+Find information by *meaning*, not keywords. Ask vague questions and still get the right answer.
+
+### 💬 Conversational Q&A
+Ask natural language questions grounded entirely in your own ingested knowledge base.
+
+### 📝 Smart Summaries
+Generate structured, bullet-pointed summaries for any topic or specific document in your library.
+
+### 🔗 Knowledge Graph
+Automatically map how concepts connect across your entire library. Visualize your mental model.
+
+### 💡 Daily Insights
+Surface surprising, non-obvious connections between random pieces of your knowledge.
+
+### 🖥️ Rich Interactive CLI
+A full REPL with command history, inline help, and over 20 built-in commands.
+
+### 🔒 100% Local & Private
+Powered by Ollama. No API keys, no cloud, no telemetry — ever.
 
 ---
 
 ## 🏗️ Architecture
 
-```
+````markdown
 second_brain/
-├── ingestion/          # PDF, web, and text processors
-├── storage/            # Vector store, graph store, summary store
-├── agents/             # Query, link, and insight reasoning agents
-├── utils/              # Helpers
-├── brain.py            # Main orchestrator / public API
-├── main.py             # Interactive CLI entry‑point
-└── Architecture.txt    # Detailed directory layout
-```
-
-The system is built around a modular pipeline:
-
-1. **Ingestion** modules parse raw content into chunks.
-2. **Storage** layers persist those chunks in a Chroma vector database, a NetworkX knowledge graph, and a SQLite summary store.
-3. **Agents** use a local LLM (default: `mistral:7b`) to reason across the stored knowledge, providing answers, connections, and insights.
-
-All components are wired together by the `SecondBrain` class in `brain.py`, which offers a simple, unified API.
-
+├── ingestion/
+│   ├── __init__.py
+│   ├── pdf_processor.py
+│   ├── web_processor.py
+│   └── text_processor.py
+├── storage/
+│   ├── __init__.py
+│   ├── vector_store.py
+│   ├── graph_store.py
+│   └── summary_store.py
+├── agents/
+│   ├── __init__.py
+│   ├── query_agent.py
+│   ├── link_agent.py
+│   └── insight_agent.py
+├── utils/
+│   ├── __init__.py
+│   └── helpers.py
+├── brain.py
+└── main.py
+````
 ---
+
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### 1 · Prerequisites
+````markdown
+- Python 3.10+
+- Ollama installed and running
+````
+---
 
-- **Python 3.10+**
-- **[Ollama](https://ollama.com/)** installed and running locally.
-- Pull a local LLM model and an embedding model:
-  ```bash
-  ollama pull mistral:7b
-  ollama pull nomic-embed-text
-  ```
-  (You can configure different models later – see [Configuration](#configuration) below.)
-
-### Installation
+### 2 · Pull Models
 
 ```bash
-# Clone the repository
+ollama pull mistral:7b
+ollama pull nomic-embed-text
+````
+
+---
+
+### 3 · Install
+
+```bash
 git clone https://github.com/2am-dev/Second-Brain.git
 cd Second-Brain
-
-# Create and activate a virtual environment (recommended)
 python -m venv .venv
-source .venv/bin/activate   # On Windows: .venv\Scripts\activate
-
-# Install dependencies
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Basic Usage
+---
 
-Launch the interactive REPL:
+### 4 · Run
 
 ```bash
 python main.py
-```
+python main.py --demo  #For running demo no extra files
 
-You’ll see the welcome banner and a prompt. Try these commands:
-
-```
-> ingest pdf /path/to/paper.pdf
-> ask What is the main contribution of this paper?
-> summarize doc paper.pdf
-> insights
-> help
-```
-
-To ingest a web page:
-
-```
-> ingest url https://en.wikipedia.org/wiki/Knowledge_graph
-```
-
-To compare two topics:
-
-```
-> compare attention | transformer
-```
-
-For a one‑shot ingestion without entering the REPL:
-
-```bash
-python main.py --ingest /path/to/file.pdf
-python main.py --demo   # run a built‑in demonstration
+# Ingest a single file then exit
+python main.py --ingest /path/to/paper.pdf
+python main.py --ingest /path/to/notes.md
+python main.py --ingest /path/to/book.txt
 ```
 
 ---
 
-## 📖 CLI Commands
+## 📖 CLI Reference
 
-| Command | Description |
-|---------|-------------|
-| `ingest pdf <path>` | Ingest a PDF file |
-| `ingest url <url>` | Ingest a web page |
-| `ingest text` | Type or paste a note (end with `END`) |
-| `ingest file <path>` | Auto‑detect and ingest a file |
-| `ask <question>` | Ask anything about your knowledge base |
-| `summarize <topic>` | Summarise a topic |
-| `summarize doc <source>` | Summarise a specific document |
-| `compare <a> <b>` | Compare two topics |
-| `questions` | Generate study questions |
-| `insights` | Generate daily insights |
-| `history` | Show recent insights |
-| `docs` | List ingested documents |
-| `stats` | Show knowledge base statistics |
-| `graph build` | Build the concept knowledge graph |
-| `graph related <concept>` | Show related concepts |
-| `graph central` | Show most important concepts |
-| `graph connect <a> <b>` | Find connection between concepts |
-| `search <query>` | Raw semantic search |
-| `clear` | Clear conversation history |
-| `help` | Show this message |
-| `quit` / `exit` | Exit |
+### 📥 Ingestion
+
+| Command              | Description        |
+| -------------------- | ------------------ |
+| `ingest pdf <path>`  | Ingest a PDF file  |
+| `ingest url <url>`   | Ingest a web page  |
+| `ingest text`        | Type/paste note    |
+| `ingest file <path>` | Auto-detect format |
 
 ---
 
-## ⚙️ Configuration
+### 🔍 Queries
 
-You can customize the models and storage paths by instantiating `SecondBrain` directly in your own scripts:
+| Command                  | Description         |
+| ------------------------ | ------------------- |
+| `ask <question>`         | Ask anything        |
+| `search <query>`         | Semantic search     |
+| `summarize <topic>`      | Summarize topic     |
+| `summarize doc <source>` | Summarize document  |
+| `compare <a> <b>`        | Compare two sources |
+
+---
+
+### ⚙️ Configuration
 
 ```python
 from brain import SecondBrain
 
 brain = SecondBrain(
-    db_path="./my_vector_db",          # Chroma vector store directory
-    graph_path="./my_graph.pkl",       # NetworkX graph file
-    summary_db="./my_summaries.db",    # SQLite summary store
-    llm_model="llama3.2:3b",           # Any Ollama model
-    embed_model="nomic-embed-text",    # Embedding model
+    db_path="./my_vector_db",
+    graph_path="./my_graph.pkl",
+    summary_db="./my_summaries.db",
+    llm_model="llama3.2:3b",
+    embed_model="nomic-embed-text",
 )
 ```
 
 ---
 
-## 🧪 Example Script
-
-```python
-from brain import SecondBrain
-
-# Initialize the brain
-brain = SecondBrain()
-
-# Ingest a PDF
-brain.ingest_pdf("papers/transformer.pdf")
-
-# Ask a question
-answer = brain.ask("What is the key innovation of the transformer architecture?")
-print(answer)
-
-# List all documents
-for doc in brain.list_documents():
-    print(doc["source"], doc["chunk_count"], "chunks")
-
-# Get daily insights
-print(brain.generate_insights())
-```
-
----
-
-## 🛠️ Dependencies
-
-The project is Python‑only and relies on:
-
-- **[Chroma](https://www.trychroma.com/)** – vector database for semantic search.
-- **[Ollama](https://github.com/ollama/ollama-python)** – local LLM and embedding serving.
-- **[NetworkX](https://networkx.org/)** – knowledge graph manipulation.
-- **[SQLite](https://www.sqlite.org/)** – lightweight summary and metadata storage.
-- **[PyPDF2](https://pypi.org/project/PyPDF2/)** (or similar) – PDF text extraction.
-- **[requests](https://pypi.org/project/requests/)** / **[beautifulsoup4](https://pypi.org/project/beautifulsoup4/)** – web page processing.
-
-All can be installed via `pip install -r requirements.txt`.
-
----
-
 ## 🗺️ Roadmap
 
-- [ ] Gradio/Streamlit web UI
-- [ ] Scheduled background ingestion (watch folders)
-- [ ] Multi‑user support
-- [ ] More sophisticated graph reasoning (e.g., path‑finding between concepts)
-- [ ] Integration with note‑taking apps (Obsidian, Notion)
+* Web UI
+* Folder watcher
+* Graph visualization
+* Notion/Obsidian sync
+* Plugin system
 
----
 
-## 🤝 Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request. For major changes, please start a discussion first.
+🤝 Contributing
 
----
+PRs welcome! Open an issue or discussion first.
 
-## 📜 License
+📜 License
 
-MIT – see the [LICENSE](LICENSE) file for details.
+MIT License — see LICENSE file.
 
----
+<div align="center">
 
-**Built with ❤️ by [2am-dev](https://github.com/2am-dev)**
-```
+Built with ❤️ by 2am-dev
 
+⭐ Star the repo if you find it useful!
+
+</div> 
